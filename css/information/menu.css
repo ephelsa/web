@@ -1,0 +1,80 @@
+/* ----------- Listas del menú ----------- */
+
+header ul {
+	float: right;
+}
+
+.menu {
+	top: 0;
+	left: 0;
+
+	width: 90%;
+
+	transition: all 0.5s;
+	transform: translateX(-120%);
+}
+
+.menu ul {
+	padding: 5px 0px;
+
+	margin: 0;
+
+	list-style: none;
+
+	display: flex;
+}
+
+.menu a {
+	background-color: rgba(24, 24, 24, 0.2);
+
+	color: white;
+	
+	padding: 2px 10px;
+	margin: 0px 0px;
+	
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.menu a:hover {
+	background-color: #519596;
+	font-size: 21px;
+
+	box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.menu a:active {
+	background-color: #60aeaf;
+}
+
+/* ---------- Menú nombre ---------- */
+
+#menu-bar {
+	display: none;
+}
+
+#menu-title-bar h1 {
+	float: left;
+
+	font-size: 24px;
+
+	margin: 0px;
+	padding: 2px 20px;
+}
+
+#menu-title-bar h1:hover {
+	cursor: pointer;
+
+	color: rgba(255, 255, 255, 0.9);
+	background-color: #519596;
+}
+
+#menu-bar:checked ~ .menu {
+	transform: translateX(0%);
+}
+
+#menu-bar:checked ~ #menu-title-bar h1 {
+	color: rgba(255, 255, 255, 0.9);
+
+	background-color: #60aeaf;
+}
