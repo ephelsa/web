@@ -29,6 +29,23 @@
 </header>
 
 <body>
+  <!-- Crear una función que recoja de firebase y cree tantos p como datos lea :D -->
+
+  <script type="text/javascript">
+    function createP() {
+      var para = document.createElement("p");
+      var node = document.createTextNode("This is new.");
+      para.appendChild(node);
+
+      var element = document.getElementById("div1");
+      element.appendChild(para);
+
+      alert("Element created");
+    }
+  </script>
+  
+
+  <div id="div1"></div>
 
   <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
