@@ -1,6 +1,7 @@
 /* ------------- HEADER ---------------*/
 
-const liNames = {Home:"Home", PubMan:"Publication Manager", Logout:"Logout"};
+const liNames = {Home: "Home", PubMan: "Publication Manager",
+				 Profile: "Edit Profile", Logout: "Logout"};	// This is the menu items
 
 const header = document.createElement("HEADER");
 const div_container = document.createElement("DIV");
@@ -50,7 +51,7 @@ menu.appendChild(ul);
 const footer = document.createElement("FOOTER");
 const p_footer = document.createElement("P");
 
-p_footer.innerText = "This is the footer";
+p_footer.innerHTML = "This is the footer";
 
 footer.appendChild(p_footer);
 document.body.appendChild(footer);
@@ -61,12 +62,18 @@ document.body.appendChild(footer);
 
 // Get elements
 var btnLogout = document.getElementById('btnLogout');
+var btnProfile = document.getElementById('btnProfile');
 var btnPubMan = document.getElementById('btnPubMan');
 var btnHome = document.getElementById('btnHome');
 
 // Log out button
 btnLogout.addEventListener('click', function(e) {
 	firebase.auth().signOut();
+});
+
+// Profile
+btnProfile.addEventListener('click', function(e) {
+	alert("Building zone!");
 });
 
 // Publication Manager

@@ -7,7 +7,8 @@
    <meta name="format-detection" content="telephone=no">
    <meta name="msapplication-tap-highlight" content="no">
 
-   <link rel=StyleSheet href="../css/information/information.css" type="text/css">
+   <link rel="stylesheet" type="text/css" href="../css/publication_manager.css" >
+
    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
    <!-- Firebase -->
@@ -15,6 +16,19 @@
 </head>
 
 <body>
-  <script src="../scripts/page-controller.js"></script>
+   <div class="container">
+      <p> 
+         <label>Here is the preview of your notice:</label>
+         <br>
+         <label id="preview"></label>
+      </p>
+      <p>
+         <textarea class="notice-area" type="text" id="txtNotice" placeholder="Noticia..." ></textarea>
+         <button id="btnNewContent">Publish!</button>
+      </p>
+   </div>
+
+   <script src="../scripts/page-controller.js"></script>
+   <script src="../scripts/publication_manager.js"></script>
 </body>
 </html>
