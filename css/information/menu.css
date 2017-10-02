@@ -34,6 +34,9 @@ header ul {
 	
 	text-decoration: none;
 	text-transform: uppercase;
+
+	transition-property: all;
+	transition-duration: 0.2s;
 }
 
 .menu a:hover {
@@ -60,6 +63,9 @@ header ul {
 
 	margin: 0px;
 	padding: 2px 20px;
+
+	transition-property: all;
+	transition-duration: 0.2s;
 }
 
 #menu-title-bar h1:hover {
@@ -67,6 +73,8 @@ header ul {
 
 	color: rgba(255, 255, 255, 0.9);
 	background-color: #519596;
+
+	border-left: 5px solid rgba(255, 255, 255, 0.9);
 }
 
 #menu-bar:checked ~ .menu {
@@ -77,4 +85,15 @@ header ul {
 	color: rgba(255, 255, 255, 0.9);
 
 	background-color: #60aeaf;
+
+	border-left: 5px solid rgba(255, 255, 255, 0.9);
+}
+
+
+/* -------- Media -------- */
+@media(max-width: 768px){
+    #menu-title-bar h1 {
+        font-size: 18px;
+
+    }       
 }

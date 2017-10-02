@@ -7,6 +7,7 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
 
+  <link rel="stylesheet" type="text/css" href="../css/fontello.css">
   <link rel=StyleSheet href="../css/information/information.css" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
@@ -28,49 +29,13 @@
   </div>
 </header>
 
+
 <body>
-  <!-- Crear una función que recoja de firebase y cree tantos p como datos lea :D -->
-
-  <script type="text/javascript">
-    function createP() {
-      var para = document.createElement("p");
-      var node = document.createTextNode("This is new.");
-      para.appendChild(node);
-
-      var element = document.getElementById("div1");
-      element.appendChild(para);
-
-      alert("Element created");
-    }
-  </script>
-  
-
-  <div id="div1"></div>
-
-  <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-  <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-  <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <div id="p_container"></div>
 
   <script src="../scripts/information.js"></script>
-
 </body>
+
 
 <footer>
   <p> This is the footer</p>

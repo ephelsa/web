@@ -21,7 +21,7 @@
   const btnLogin = document.getElementById('btnLogin');
 
   // Add Login event
-  btnLogin.addEventListener('click', e => {
+  btnLogin.addEventListener('click', function(e) {
     const email = txtEmail.value + emailProvider;
     const pass = txtPass.value;
     const auth = firebase.auth();
@@ -32,7 +32,7 @@
   });
 
   // Add realtime listener
-  firebase.auth().onAuthStateChanged(firebaseUser => {
+  firebase.auth().onAuthStateChanged(function(firebaseUser) {
     if(firebaseUser) {
       console.log(firebaseUser);
 

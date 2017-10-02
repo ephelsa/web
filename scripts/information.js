@@ -1,4 +1,9 @@
 (function () {
+  
+  // Get elements  
+  var btnLogout = document.getElementById('btnLogout');
+  var div_container = document.getElementById('p_container');
+
 
   // Initialize Firebase
   var config = {
@@ -9,23 +14,39 @@
     storageBucket: "",
     messagingSenderId: "412108039220"
   };
-  
+
+  // Firebase
   firebase.initializeApp(config);
 
-  const btnLogout = document.getElementById('btnLogout');
+  // Firebase References
+  var dbRefObject = firebase.database().ref().child('data');
+  var dbRefList = dbRefObject.child('publications');
 
+  // Variables
+  var time = new Date().getTime() / 1000;
 
-  btnLogout.addEventListener('click', e => {
+  // Log out button
+  btnLogout.addEventListener('click', function(e) {
     firebase.auth().signOut();
   });
 
   // Add realtime listener
-  firebase.auth().onAuthStateChanged(firebaseUser => {
+  firebase.auth().onAuthStateChanged(function(firebaseUser) {
     if(firebaseUser) {
-      console.log(firebaseUser);
+      // Here is the next page.
     } else {
       location.href = "index.html";
     }
+  });
+
+
+  // Parragraph List
+  dbRefList.on('child_added', function(snap) {
+    const p = document.createElement('p');
+    p.innerText = snap.val();
+    p.id = snap.key;
+
+    div_container.appendChild(p);
   });
 
 }());
