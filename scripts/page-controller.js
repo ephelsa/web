@@ -74,6 +74,7 @@ btnLogout.addEventListener('click', function(e) {
 // Profile
 btnProfile.addEventListener('click', function(e) {
 	alert("Building zone!");
+	btnProfile.href = "profile.html";
 });
 
 // Publication Manager

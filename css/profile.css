@@ -1,0 +1,16 @@
+@import url(publication_manager.css);
+
+label + input {	
+	width: 100%;
+
+	display: block;
+
+	position: static; 
+}
+
+input {
+	padding: 12px 20px;
+
+	margin-top: 5px;
+	margin-bottom: 20px;
+}
