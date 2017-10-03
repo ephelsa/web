@@ -36,9 +36,16 @@ var preview = document.getElementById('preview');
 var txtNotice = document.getElementById('txtNotice');
 var btnNewContent = document.getElementById('btnNewContent');  
 
+
+
+
 // Buttons events
 btnNewContent.addEventListener('click', async function(e) {
-  var dbRefData = firebase.database().ref().child('data');  // dbRefData
+  var dbRefData = firebase.database()
+    .ref()
+    .child('data')
+    .child('publications');  
+
 
   var time = new Date().getTime();  // Get the time
   var notice = txtNotice.value;  // Get the value of notice
@@ -48,11 +55,11 @@ btnNewContent.addEventListener('click', async function(e) {
     preview.innerHTML = "Please, write something...";
 
   } else {
-    dbRefData.child('author').child(time).set(author);  // Set the author on firebase
-    dbRefData.child('publications').child(time).set(notice);  // Set the notice on firebase
+    dbRefData.child(time).child('content').set(notice);  // Set the notice on firebase
+    dbRefData.child(time).child('author').set(author);  // Set the author on firebase
 
-    dbRefData.child('publications').on('child_added', function(dataSnap) {
-      preview.innerHTML = dataSnap.val();
+    dbRefData.on('child_added', function(notice) {
+      preview.innerHTML = notice.child('content').val();
 
       txtNotice.value = "";
     });

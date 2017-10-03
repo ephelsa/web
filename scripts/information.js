@@ -11,15 +11,6 @@ var config = {
 // Firebase
 firebase.initializeApp(config);
 
-// Firebase References
-var dbRefObject = firebase.database().ref().child('data');
-var dbRefNotice = dbRefObject.child('publications');
-var dbRefAuthor = dbRefObject.child('author');
-
-// Create elements  
-var publication_container = document.createElement("DIV");
-document.body.appendChild(publication_container);
-
 /*
   Realtime listener
 
@@ -31,28 +22,36 @@ firebase.auth().onAuthStateChanged(function(firebaseUser) {
   }
 });
 
+
+
+// Firebase References
+var dbRefPublications = firebase.database()
+  .ref()
+  .child('data')
+  .child('publications');
+var topUserPostRef = dbRefPublications.orderByChild('order');
+
+
+// Create elements  
+var publication_container = document.createElement("DIV");
+document.body.appendChild(publication_container);
+
 // Parragraph List
-dbRefNotice.on('child_added', function(dataSnap) {
+topUserPostRef.on('child_added', function(publication) {
   const p = document.createElement("P");
-
-  const notice = document.createElement("LABEL");
-  
-  notice.innerHTML = dataSnap.val();
-  p.id = dataSnap.key;
-
-  p.appendChild(notice);
-  publication_container.appendChild(p);
-});
-
-dbRefAuthor.on('child_added', function(dataSnap) {
-  const p = document.getElementById(dataSnap.key);
-
+  const post = document.createElement("LABEL");
   const author =document.createElement("LABEL");
 
+  // Author attributes
   author.setAttribute("class", "author-tag");
-  author.setAttribute("for", dataSnap.key);
+  author.setAttribute("for", publication.key);
 
-  author.innerHTML = "<b>Author: </b>" + "<i>" + dataSnap.val() + "</i>";
-
+  p.appendChild(post);
   p.appendChild(author);
+  publication_container.appendChild(p);
+
+  p.id = publication.key;
+
+  post.innerHTML = publication.child('content').val();
+  author.innerHTML = "<b>Author: </b>" + "<i>" + publication.child('author').val() + "</i>";
 });
