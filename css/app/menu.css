@@ -99,5 +99,13 @@ header ul {
     #menu-title-bar h1 {
         font-size: 18px;
 
-    }       
+    }   
+
+    .menu ul {
+    	font-size: 14px;
+    }    
+
+    .menu a:hover {
+    	font-size: 15px
+    }
 }

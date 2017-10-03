@@ -37,3 +37,14 @@ div p:hover {
 button {
 	width: 100%;
 }
+
+
+@media(max-width: 768px) {
+	div p {
+		margin: 10px 100px;
+	}
+
+	div p:hover {
+		margin: 10px 100px;
+	}
+}

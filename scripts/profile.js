@@ -44,6 +44,8 @@ btnSubmmit.addEventListener('click', async function(e) {
     .child('admin')
     .child(fUser.uid);  
 
+  updateProfile(txtName.value);
+
   // Set the information in the UID
   refUserInfo.child('name').set(txtName.value);
   refUserInfo.child('tel').set(txtTel.value);
@@ -54,7 +56,44 @@ btnSubmmit.addEventListener('click', async function(e) {
 
 function clearForm() {
   txtName.value = "";
-  txtEmail.value = fUser.email;
+  txtEmail.value = "";
   txtTel.value = "";
   txtCel.value = "";
+}
+
+function updateProfile(name) {
+  fUser.updateProfile({
+    displayName: name
+  }).then(function() {
+    alert("Done!");
+
+    updatePublisher();
+  }, function(error) {
+    alert(error);
+  });
+}
+
+function updatePublisher() {
+  var ref = firebase.database()
+    .ref()
+    .child('data')
+    .child('publications');
+
+  ref.on('value', async function(times) {
+    times.forEach(function(snapshot) {
+      if (snapshot.child('uid').val() == fUser.uid) {
+        var timeRef = snapshot.key;
+
+        ref.child(timeRef).child('author').set(fUser.displayName);
+      }
+    });
+  });
+}
+
+function inputValidate(refUserInfo, key, input) {
+  if (input.value == "") {
+    return refUserInfo.child(key).val();
+  } else {
+    return input.value;
+  }
 }
