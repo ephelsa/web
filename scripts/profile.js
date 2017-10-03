@@ -16,17 +16,45 @@ firebase.initializeApp(config);
 
   This is to verify the auth.
 */
-var user = "";
+var fUser = "";
 
 firebase.auth().onAuthStateChanged(function(firebaseUser) {
-
   if(firebaseUser) {
-    firebaseUser.providerData.forEach(function(profile) {
-      user = firebaseUser;   // Get the user
-    });
-
+    fUser = firebaseUser;
   } else {
     location.href = "login.html";
   }
 });
 
+// Get elements
+var txtName = document.getElementById('txtName');
+var txtEmail = document.getElementById('txtEmail');
+var txtTel = document.getElementById('txtTel');
+var txtCel = document.getElementById('txtCel');
+
+var btnSubmmit = document.getElementById('btnSubmmit');
+
+
+/*  Buttons events  */
+btnSubmmit.addEventListener('click', async function(e) {
+  // Firebase database Reference
+  var refUserInfo = firebase.database()
+    .ref()
+    .child('users')
+    .child('admin')
+    .child(fUser.uid);  
+
+  // Set the information in the UID
+  refUserInfo.child('name').set(txtName.value);
+  refUserInfo.child('tel').set(txtTel.value);
+  refUserInfo.child('cel').set(txtCel.value);
+
+  clearForm();
+});
+
+function clearForm() {
+  txtName.value = "";
+  txtEmail.value = fUser.email;
+  txtTel.value = "";
+  txtCel.value = "";
+}

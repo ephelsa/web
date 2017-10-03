@@ -20,15 +20,11 @@ var author = "";
 
 firebase.auth().onAuthStateChanged(function(firebaseUser) {
   if(firebaseUser) {
-    firebaseUser.providerData.forEach(function(profile) {
-      author = profile.email;   // Get de author email for the moment
-    });
-
+    author = firebaseUser;
   } else {
     location.href = "login.html";
   }
 });
-
 
 // Get elements
 var preview = document.getElementById('preview');
@@ -56,8 +52,9 @@ btnNewContent.addEventListener('click', async function(e) {
 
   } else {
     dbRefData.child(time).child('content').set(notice);  // Set the notice on firebase
-    dbRefData.child(time).child('author').set(author);  // Set the author on firebase
-    dbRefData.child(time).child('order').set(-time);  // Set the order
+    dbRefData.child(time).child('author').set(author.email);  // Set the author on firebase
+    dbRefData.child(time).child('order').set(-time);  // Set the order. Is negative becase is ascend.
+    dbRefData.child(time).child('uid').set(author.uid); // Set the UID.
 
     dbRefData.on('child_added', function(notice) {
       preview.innerHTML = notice.child('content').val();

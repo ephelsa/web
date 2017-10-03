@@ -33,7 +33,7 @@ body {
 	background: #8ca2a3;
 }
 	
-label {
+.label_form {
 	margin-left: 2px; 
 
 	font-size: 16px;
