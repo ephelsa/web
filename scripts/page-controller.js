@@ -1,7 +1,9 @@
 /* ------------- HEADER ---------------*/
 
-const liNames = {Home: "Home", PubMan: "Publication Manager",
-				 Profile: "Edit Profile", Logout: "Logout"};	// This is the menu items
+const liNames = {Home: "Home", 
+				PubMan: "Publication Manager",
+				Profile: "Edit Profile",
+				Logout: "Logout"};	// This is the menu items
 
 const header = document.createElement("HEADER");
 const div_container = document.createElement("DIV");

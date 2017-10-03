@@ -25,7 +25,7 @@ firebase.auth().onAuthStateChanged(function(firebaseUser) {
     });
 
   } else {
-    location.href = "index.html";
+    location.href = "login.html";
   }
 });
 

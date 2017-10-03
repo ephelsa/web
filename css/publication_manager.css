@@ -1,5 +1,5 @@
-@import url(information/information.css);
-@import url(buttons.css);
+@import url(app/content.css);
+@import url(app/buttons.css);
 
 textarea.notice-area {
 	resize: none;
@@ -10,10 +10,12 @@ textarea.notice-area {
 	margin-bottom: 20px;
 	padding: 10px 15px;
 
-	font-size: 20px;
+	font-size: 14px;
 
 	transition-property: all;
 	transition-duration: 0.3s;
+
+	font-family: 'Source Sans Pro', sans-serif; 
 }
 
 textarea:focus {
