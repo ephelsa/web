@@ -57,6 +57,7 @@ btnNewContent.addEventListener('click', async function(e) {
   } else {
     dbRefData.child(time).child('content').set(notice);  // Set the notice on firebase
     dbRefData.child(time).child('author').set(author);  // Set the author on firebase
+    dbRefData.child(time).child('order').set(-time);  // Set the order
 
     dbRefData.on('child_added', function(notice) {
       preview.innerHTML = notice.child('content').val();
