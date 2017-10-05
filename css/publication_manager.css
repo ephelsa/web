@@ -1,6 +1,11 @@
 @import url(app/content.css);
 @import url(app/buttons.css);
 
+#preview {
+	display: block;
+	padding-top: 30px;
+}
+
 textarea.notice-area {
 	resize: none;
 
@@ -27,6 +32,8 @@ textarea:focus {
 }
 
 div p {
+	display: block;
+
 	margin: 10px 400px;
 }
 

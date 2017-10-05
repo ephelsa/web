@@ -40,9 +40,8 @@ pre {
 	margin: auto;
 }
 
+/*----------	Post 	--------------*/
 div p {
-	display: block;
-
 	background-color: white; 
 
 	padding: 20px 30px;
@@ -81,6 +80,41 @@ p:hover .author-tag {
 
 	background-color: white;
 }
+
+/*----------	Comments	---------*/
+p.container {
+	width: 100%;
+	margin: 5px 0px;
+	padding: 10px 0px;
+
+	border-radius: 2px;
+	border-color: transparent;
+}
+
+p.container:hover {
+	background-color: rgba(140, 162, 163, 0.07);
+	box-shadow: 2 0 8px 0 rgb(140, 162, 163, 0.07);
+}
+
+label.comment {
+	font-size: 12px;
+}
+
+label.comment-author {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+textarea.comment {
+	display: block;
+
+	width: 100%;
+
+	resize: none;	
+
+	margin-top: 20px;
+}
+
 
 footer {
 	width: 100%;

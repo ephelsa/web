@@ -1,36 +1,8 @@
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyCv37cqPJfMVj7-07JuFY-s4wgccyveyXU",
-  authDomain: "aprendizaje-web.firebaseapp.com",
-  databaseURL: "https://aprendizaje-web.firebaseio.com",
-  projectId: "aprendizaje-web",
-  storageBucket: "",
-  messagingSenderId: "412108039220"
-};
-
-// Firebase
-firebase.initializeApp(config);
-
-/*
-  Realtime listener
-
-  This is to verify the auth.
-*/
-var fUser = "";
-
-firebase.auth().onAuthStateChanged(function(firebaseUser) {
-  if(firebaseUser) {
-    fUser = firebaseUser;
-  } else {
-    location.href = "login.html";
-  }
-});
-
 // Get elements
-var preview = document.getElementById('preview');
+const preview = document.getElementById('preview');
 
-var txtNotice = document.getElementById('txtNotice');
-var btnNewContent = document.getElementById('btnNewContent');  
+const txtNotice = document.getElementById('txtNotice');
+const btnNewContent = document.getElementById('btnNewContent');  
 
 
 // Buttons events
@@ -40,13 +12,12 @@ btnNewContent.addEventListener('click', async function(e) {
     .child('data')
     .child('publications');  
 
-    setRefDataValues(dbRefData);
+    createNotice(dbRefData);
 });
 
-
 /*  This function is only to set the values in firebaseio   */
-function setRefDataValues(dbRefData) {
-  var time = new Date().getTime();  // Get the time
+function createNotice(dbRefData) {
+  var time = new Date().getTime();  // Get the time in milliseconds
   var notice = txtNotice.value;  // Get the value of notice
 
   var author = fUser.displayName; // Get the name 
@@ -64,6 +35,7 @@ function setRefDataValues(dbRefData) {
     dbRefData.child(time).child('order').set(-time);  // Set the order. Is negative becase is ascend.
     dbRefData.child(time).child('uid').set(fUser.uid); // Set the UID.
 
+    // To show the preview
     dbRefData.on('child_added', function(notice) {
       preview.innerHTML = notice.child('content').val();
 

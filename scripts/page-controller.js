@@ -1,9 +1,11 @@
 /* ------------- HEADER ---------------*/
 
+// Menu items
 const liNames = {Home: "Home", 
-				PubMan: "Publication Manager",
-				Profile: "Edit Profile",
-				Logout: "Logout"};	// This is the menu items
+		PubMan: "Publication Manager",
+		Profile: "Edit Profile",
+		Logout: "Logout"};
+// end(Menu items)
 
 const header = document.createElement("HEADER");
 const div_container = document.createElement("DIV");
@@ -86,6 +88,6 @@ btnPubMan.addEventListener('click', function(e) {
 
 // Home 
 btnHome.addEventListener('click', function(e) {
-	btnHome.href = "information.html";
+	btnHome.href = "post.html";
 });
 /* end Button events */
